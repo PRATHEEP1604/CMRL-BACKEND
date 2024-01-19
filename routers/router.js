@@ -1,0 +1,54 @@
+const router = require('express').Router();
+const controller = require('../controllers/controller');
+const l1_controller = require('../controllers/l1_controller');
+const l1_login_controller = require('../controllers/l1_login_controller');
+const cmo_controller = require("../controllers/cmo_controller")
+const ze_controller = require("../controllers/ze_controller") 
+const forget_password = require("../controllers/forget_pass");
+const sl1_login = require("../controllers/sl1_login_controller");
+const sje_login = require("../controllers/sje_login");
+const spare_request = require("../controllers/spare_request");
+router.post('/view',controller.view);
+router.post('/handover_view',controller.handover_view);
+router.post('/insert',controller.insert);
+router.post('/add',controller.add);
+router.post('/l1_view',l1_controller.l1_view);
+router.post("/l1_assign",l1_controller.l1_assign);
+router.post("/l1_self_assign",l1_controller.l1_self_assign);
+router.post("/l1_login",l1_login_controller.login)
+router.post("/l1_profile",l1_controller.l1_profile_page);
+router.post("/l1_request_page",l1_controller.l1_request_page);
+router.post("/l1_closed",l1_controller.l1_closed);
+router.post("/l1_spare",l1_controller.l1_spare);
+router.post("/l1_need",l1_controller.l1_need);
+router.post("/l1_in_progress",l1_controller.l1_in_progress);
+router.post("/l1_punch",l1_login_controller.punch);
+router.post("/l1_punchout",l1_login_controller.punchOut);
+router.post("/cmo_login",cmo_controller.cmo_login);
+router.post("/cmo_view",cmo_controller.cmo_view);
+router.post("/cmo_assign",cmo_controller.cmo_assign);
+router.post("/cmo_getAckno",cmo_controller.cmo_ackno);
+router.post("/cmo_dashboard",cmo_controller.dashboard);
+router.post("/cmo_profile",cmo_controller.cmo_profile_page);
+router.post("/ze_view",ze_controller.ze_view);
+router.post("/ze_assign",ze_controller.ze_assign);
+router.post("/ze_getAckno",ze_controller.ze_ackno);
+router.post("/ze_dashboard",ze_controller.dashboard);
+router.post("/ze_get_request",ze_controller.get_request);
+router.post("/ze_login",ze_controller.ze_login);
+router.post("/ze_profile",ze_controller.ze_profile_page);
+router.post("/l1_forget_password",forget_password.l1_forget);
+router.post("/l1_check_otp",forget_password.check_otp);
+router.post("/l1_reset",forget_password.reset)
+router.post("/sl1_login",sl1_login.login);
+router.post("/sje_login",sje_login.login);
+router.post("/zje_afs",spare_request.zje_afs);
+router.post("/zje_close",ze_controller.ze_close);
+router.post("/store_view",spare_request.afs_view);
+router.post("/request_assign",spare_request.request_assign);
+router.post("/view_assigned_spare",spare_request.view_assigned_spare);
+router.post("/request_handover",spare_request.request_handover);
+router.post("/store_dashboard",spare_request.dashboard);
+router.post("/sl1_profile",sl1_login.l1_profile_page);
+router.post("/l1_spare_assign",l1_controller.l1_spare_assign);
+module.exports = router;
